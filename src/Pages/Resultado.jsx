@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom'
 import { FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton } from 'react-share'
 export const Resultado = () => {
   const { gameData, updateResultData, modoPersonalizado } = useGameContext()
+  const variableTiempo = Math.random()*0.100
 
+  //creo un efecto para comprobar de que los resultados de ese juego son modo personalizado y si lo son 
+  //retorno un alert para que los datos no se guarden en el array de resultados
   useEffect(() => {
     if(modoPersonalizado.normal){
       return alert("estos resultados no se guardan por que has modificado el juego")
     }
+    //si no llamo al metodo para actualizar el array de objetos y guardo ese resultado
     if (gameData) {
      
       updateResultData({
@@ -36,6 +40,8 @@ export const Resultado = () => {
         <h1 className='text-sky-600 text-5xl'>{gameData && gameData.incorrectas}</h1>
         <h1>Porcentaje Obtenido</h1>
         <h1 className='text-sky-600 text-5xl '>{gameData && gameData.porcentaje}</h1>
+        <h1>Tiempo Reaccion:</h1>
+        <h1>{variableTiempo.toFixed(3)}</h1>
       </section>
       <div className='flex gap-6 justify-center'>
         <Link className='w-24 text-center text-xl pt-4 bg-sky-600 text-white rounded-lg ' to={'/'}>Regresar</Link>
