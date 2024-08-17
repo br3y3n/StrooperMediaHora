@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useGameContext } from '../components/resultadoContext'
+
 import { Link } from 'react-router-dom'
 import { FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton } from 'react-share'
+import { useGameContext } from '../Components/JuegoContex'
 export const Resultado = () => {
   const { gameData, updateResultData, modoPersonalizado } = useGameContext()
 
